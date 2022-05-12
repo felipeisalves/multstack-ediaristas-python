@@ -3,14 +3,13 @@
 ### Instalando o projeto
 
 ### Clonar o projeto
-`git clone url`
+`git clone https://github.com/felipeisalves/multstack-ediaristas-python.git`
 
 ### Instalar dependências
 `pip install -r requirements.txt`
 
 ### Alterar configurações do BD no arquivo settings.py
 ```
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
