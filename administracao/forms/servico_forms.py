@@ -1,6 +1,6 @@
 from dataclasses import field
 from django import forms
-from .models import Servico
+from ..models import Servico
 from decimal import Decimal
 
 class ServiceForm(forms.ModelForm):
