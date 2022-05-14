@@ -10,7 +10,7 @@ def  cadastrar_usuario(request):
         # Só salva se os dados forem validos
         if form_usuario.is_valid():
             form_usuario.save()
-            return redirect('listar_usuarios')
+            return redirect(listar_usuarios)
     else:
         # Cria um formulario vazio
         form_usuario = UsuarioForm()

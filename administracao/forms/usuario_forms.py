@@ -1,7 +1,13 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
 
 # Class herdando de UserCreationForm
 class UsuarioForm(UserCreationForm):
+    # Classe altera os campos obrigatorios do model
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'first_name', 'email', 'password1', 'password2']
+
     def save(self, commit=True):
         # instancia o usuario que estamas criando
         user = super(UserCreationForm, self).save(commit=False)
