@@ -1,8 +1,9 @@
-from django.contrib.auth.forms import UserCreationForm
+from dataclasses import fields
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import get_user_model
 
 # Class herdando de UserCreationForm
-class UsuarioForm(UserCreationForm):
+class CadastroUsuarioForm(UserCreationForm):
     # Classe altera os campos obrigatorios do model
     class Meta:
         model = get_user_model()
@@ -18,3 +19,10 @@ class UsuarioForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class EditarUsuarioForm(UserChangeForm):
+    password = None
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'first_name', 'email']
+
