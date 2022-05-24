@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
 from ..forms.servico_forms import ServiceForm
 from ..models import Servico
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def cadastrar_servico(request):
     if request.method == "POST":
         form_servico = ServiceForm(request.POST)
@@ -13,10 +15,12 @@ def cadastrar_servico(request):
         form_servico = ServiceForm()
     return render(request, 'servicos/form_servico.html', {"form_servico": form_servico})
 
+@login_required
 def listar_servicos(request):
     servicos = Servico.objects.all()
     return render(request, 'servicos/lista_servicos.html', {'servicos': servicos})
 
+@login_required
 def editar_servico(request, id):
     # Igual um select, where id = id
     servico = Servico.objects.get(id=id)
